@@ -1,0 +1,27 @@
+.has-unread {
+
+  .notification {
+    color: $notification-color;
+    background-color: $notification-background;
+  }
+
+  .nav__link {
+    padding-right: 2 * $global-space-unit;
+  }
+}
+
+.notification {
+  width: $global-space-unit;
+  height: $global-space-unit;
+  line-height: $global-space-unit;
+  font-size: $font-size-medium;
+  text-align: center;
+
+  &--pill {
+    @include border-radius(50%);
+    position: absolute;
+    right: $global-space-unit / 2;
+    top: 50%;
+    margin-top: -.5 * $global-space-unit;
+  }
+}

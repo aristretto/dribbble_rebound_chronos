@@ -1,0 +1,23 @@
+{
+  "name": "chronos",
+  "version": "0.0.1",
+  "authors": [
+    "albert <albert+github@counsyl.com>"
+  ],
+  "description": "ui eng screen 1",
+  "main": "index.html",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "font-awesome": "~4.1.0",
+    "normalize-css": "~3.0.1",
+    "handlebars": "~1.3.0"
+  }
+}

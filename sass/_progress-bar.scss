@@ -1,0 +1,24 @@
+.progress {
+
+  .fa, &-max {
+    align-self: center;
+  }
+
+  .fa {
+    margin-right: $global-space-unit;
+  }
+
+  &-max {
+    height: 3px;
+    background-color: $transluscent-white;
+    flex-grow: 1;
+    position: relative;
+  }
+
+  &-current {
+    height: 100%;
+    position: absolute;
+    width: 60%;
+    background-color: $transluscent-white;
+  }
+}

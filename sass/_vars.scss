@@ -1,0 +1,25 @@
+$page-max-width: 1000px;
+
+$global-space-unit: 20px;
+$global-border-radius: 6px;
+
+$link-active-color: rgb(93,176,198);
+$link-hover-color: tint($link-active-color, 20%);
+
+$entries-background-color: rgba(237, 238, 240, 1);
+$transluscent-white:   rgba(255,255,255,.45);
+$transluscent-white-2: rgba(255,255,255,.8);
+
+$notification-color: white;
+$notification-background: rgb(242, 121, 92);
+
+
+$font-size-small:  10px;
+$font-size-medium: 13px;
+$font-size-large:  17px;
+$font-size-title:  24px;
+
+$tag--red--color:    rgb(226, 91, 53);
+$tag--orange--color: rgb(244, 146, 98);
+$tag--blue--color:   rgb(5, 145, 213);
+$tag--teal--color:   rgb(6, 187, 178);

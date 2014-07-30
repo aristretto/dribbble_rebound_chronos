@@ -1,0 +1,16 @@
+.link--user {
+  margin-left: $global-space-unit;
+  display: block;
+}
+
+.user-avatar {
+  @include circle(100%);
+}
+
+.link--user--avatar {
+  @include square(30px);
+}
+
+.link--user--add {
+  color: rgb(243, 122, 93);
+}

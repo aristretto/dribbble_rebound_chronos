@@ -1,0 +1,39 @@
+* {
+  @include box-sizing(border-box);
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  height: 100%;
+  background: rgba(78, 92, 103, 1);
+  font-family: 'Open Sans', sans-serif;
+}
+
+// super basic type resets
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  font-weight: 300;
+}
+
+p     { margin-bottom: 0;      }
+p + p { marign-top: 1em;       }
+a     { text-decoration: none; }
+
+.page-wrapper {
+  width: 100%;
+  max-width: $page-max-width;
+  margin: 50px auto;
+  border-radius: $global-border-radius;
+}
+
+// easy way to reset all lists without going as far as
+// targeting naked <ul> elements
+[class*="__list"] {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}

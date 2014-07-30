@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chronos</title>
+
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="build/styles/main.min.css">
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="bower_components/handlebars/handlebars.min.js"></script>
+
+  <script id="entry-template" type="text/x-handlebars-template">
+
+      {{#make_entries entry ~}}
+        <div class="entry {{ this.classes }}">
+          <div class="entry__stats">
+            <span class="entry__likes">
+              <i class="fa fa-heart"></i>
+              <span class="likes-count">{{~this.likeCount~}}</span>
+            </span>
+          </div>
+          {{~#if this.content~}}
+          <div class="entry__content {{this.content.classes}}">
+            {{{this.content.content}}}
+          </div>
+          {{~/if~}}
+          {{~#if this.bottom ~}}
+          <div class="entry__bottom {{this.bottom.classes}}">
+            {{{this.bottom.content}}}
+          </div>
+          {{~/if~}}
+        </div>
+      {{~/make_entries}}
+
+  </script>
+
+  <script id="message-template" type="text/x-handlebars-template">
+    <ul class="dropdown__list">
+      {{#each message}}
+      <li class="message">
+        <div class="media-object" data-message-id="{{this.id}}">
+          <img class="media-object__figure" src="{{this.src}}" alt="">
+          <div class="media-object__body">
+            <h6 class="message__title">{{this.title}}</h6>
+            <p class="message__content">{{this.content}}</p>
+          </div>
+        </div>
+      </li>
+      {{/each}}
+    </ul>
+  </script>
+
+</head>
+<body>
+  <div class="page-wrapper">
+
+    <div class="nav nav--alpha">
+      <h1 class="nav__title"><i class="fa fa-clock-o"></i> Chronos</h1>
+      <div class="nav__actions">
+        <div class="nav__menu__alpha">
+          <ul class="nav__list">
+            <li class="nav__item"><a href="#" class="nav__link is-active">Pinboard</a></li>
+            <li class="nav__item"><a href="#" class="nav__link">Calendar</a></li>
+            <li class="nav__item"><a href="#" class="nav__link">Friends</a></li>
+            <li class="nav__item has-unread has-dropdown">
+              <a href="#" class="nav__link">Messages</a>
+              <span class="notification notification--pill">8</span>
+              <div class="dropdown">
+                <div class="dropdown__actions">
+                  <div class="fake-dropdown-header-actions"><span class="fake-darker">Inbox (8)</span> / Sent</div>
+                  <i class="fa fa-pencil-square-o"></i>
+                </div>
+                <div id="dropdown-messages" class="dropdown__content">
+                  <!-- handlebars renders message list here -->
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="nav__menu__beta">
+          <ui class="nav__list">
+            <li class="nav__item">
+              <a href="#" class="link--user link--user--avatar">
+                <img class="user-avatar" src="build/imgs/user-avatar.png" alt="">
+              </a>
+            </li>
+            <li class="nav__item">
+              <a href="#" class="link--user link--user--add">
+                <span class="fa-stack">
+                  <i class="fa fa-stack-2x fa-circle-thin"></i>
+                  <i class="fa fa-stack-1x fa-plus"></i>
+                </span>
+              </a>
+            </li>
+          </ui>
+        </div>
+      </div>
+    </div>
+
+    <div class="masthead entry--photo entry--photo--masthead">
+      <div class="entry__stats">
+        <span class="entry__likes">
+          <i class="fa fa-heart"></i>
+          <span class="likes-count">10023</span>
+        </span>
+        <h3 class="masthead__featured">Featured</h3>
+      </div>
+      <div class="entry__content">
+        <div class="masthead__content__left">
+          <h2 class="masthead__content__title">Roadtrip on Highway One</h2>
+          <time class="masthead__content__time">26 January - 1 February</time>
+        </div>
+        <div class="masthead__content__right">
+          <ul class="masthead__content__nav">
+            <li>Blog Post</li>
+            <li class="is-active">Event</li>
+            <li>Photo</li>
+            <li>Music</li>
+            <li>Video</li>
+          </ul>
+        </div>
+      </div>
+      <div class="entry__bottom">
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a href="#" class="link--user link--user--avatar">
+              <img class="user-avatar" src="build/imgs/friend-avatar--1.png" alt="">
+            </a>
+          </li>
+          <li class="nav__item">
+            <a href="#" class="link--user link--user--avatar">
+              <img class="user-avatar" src="build/imgs/friend-avatar--2.png" alt="">
+            </a>
+          </li>
+          <li class="nav__item">
+            <a href="#" class="link--user link--user--avatar">
+              <img class="user-avatar" src="build/imgs/friend-avatar--3.png" alt="">
+            </a>
+          </li>
+        </ul>
+
+        <form action="" class="form--inline masthead__form">
+          <label for="rsvp">
+            <input id="rsvp" class="rsvp" type="checkbox" name="rsvp" value="yes">
+            <span class="rsvp-yes">Yes</span>
+            <span class="rsvp-divider">/</span>
+            <span class="rsvp-no">No</span>
+          </label>
+        </form>
+
+      </div>
+    </div>
+
+    <div class="nav nav--beta">
+      <h2 class="nav__title">Your Pinboard</h2>
+
+      <div class="nav__actions">
+        <h3 class="heasder--inline nav-sort-header">Sort By</h3>
+        <ul class="nav__list nav__list--inline">
+          <li class="nav__item"><a href="#"><i class="fa fa-circle-thin tag tag--red"></i></a></li>
+          <li class="nav__item"><a href="#"><i class="fa fa-circle-thin tag tag--orange"></i></a></li>
+          <li class="nav__item"><a href="#"><i class="fa fa-circle-thin tag tag--blue"></i></a></li>
+          <li class="nav__item"><a href="#"><i class="fa fa-circle-thin tag tag--teal"></i></a></li>
+        </ul>
+      </div>
+    </div>
+
+
+    <div id="entries-list" class="entries">
+      <!-- entries get rendered here by handlebars -->
+    </div>
+
+
+  </div>
+
+  <!-- wait til everything else loads -->
+  <script src="build/js/all.min.js"></script>
+</body>
+</html>

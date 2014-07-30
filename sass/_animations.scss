@@ -1,0 +1,11 @@
+// heart throb animation on hover
+@keyframes heart-hover {
+  0%   { @include scale(1); }
+  50%  { @include scale(1.2); }
+  100% { @include scale(1); }
+}
+
+.fa-heart:not(.has-been-clicked):hover {
+  animation:         heart-hover 1.5s infinite;
+}
+

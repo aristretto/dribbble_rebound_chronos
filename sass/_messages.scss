@@ -1,0 +1,33 @@
+.message {
+  padding: 0 $global-space-unit;
+
+  .media-object__figure {
+    @include circle(50px);
+  }
+
+  .media-object {
+    padding: $global-space-unit 0;
+    border-bottom: 1px solid #eee;
+    align-items: center;
+  }
+
+  &__title, &__content {
+    line-height: 1.3;
+  }
+
+  &__title {
+    font-weight: 600;
+    color: #444;
+    font-size: $font-size-medium;
+    margin-bottom: .2em;
+  }
+
+  &__content {
+    color: #999;
+    font-size: $font-size-medium;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0;
+  }
+}

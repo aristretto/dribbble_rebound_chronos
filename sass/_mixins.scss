@@ -1,0 +1,55 @@
+@mixin caps($color:initial, $font-size: $font-size-small, $letter-spacing: .25em) {
+  font-size: $font-size;
+  color: $color;
+  letter-spacing: $letter-spacing;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+@mixin square($dimension) {
+  height: $dimension;
+  width: $dimension;
+}
+
+@mixin circle($dimension) {
+  @include square($dimension);
+  border-radius: 50%;
+}
+
+@mixin absolute-center($size) {
+  left: 50%;
+  width: $size;
+  margin-left: -$size/2
+}
+
+@mixin arrow($selector, $z-index, $direction, $size:$global-space-unit, $color:white) {
+  &:#{$selector} {
+
+    // the border we manipulate to create the
+    // arrow is opposite the direction specified
+    $arrow-direction-map: (
+      top: bottom,
+      left: right,
+      right: left,
+      bottom: top
+    );
+
+    $direction: map-get($arrow-direction-map, $direction);
+
+    content: "";
+    display: block;
+    position: absolute;
+    z-index: $z-index;
+
+    left: 50%;
+    top: -$size;
+    height: 0;
+    width: 0;
+    margin-left: -$size/2;
+
+    border-width: $size/2;
+    border-style: solid;
+    border-color: transparent;
+    border-#{$direction}-color: $color;
+  }
+}
